@@ -24,11 +24,12 @@ export default {
       }
     }
   },
-  oncreate: () => {
+  oncreate() {
     let btn = this.refs.btn;
     this.laddaBtn = Ladda.create(btn);
   },
   data: () => {
+    return {
     when: false,
     class: '',
     style: '',
@@ -37,6 +38,7 @@ export default {
     spinnersize: null,
     spinnercolor: '#000',
     spinnerlines: 12
+    }
   }
 }
 </script>
