@@ -51,15 +51,15 @@ export default {
   components: { Ladda },
   data: () => {
     return {
-      ladda: true,            // show loading spinner
-      class: 'btn btn-primary',              // additional classe(s) for button
-      style: 'expand-left',   // data-style ladda option
-      color: 'purple',        // data-color ladda option
-      size: 'medium',         // data-size ladda option
-      spinnersize: 35,        // data-spinner-size ladda option
-      spinnercolor: '#000',   // data-spinner-color ladda option
-      spinnerlines: 12,       // data-spinner-lines ladda option
-      progress: 0             // passed to ladaElement.setProgress()
+      ladda: true,                // show loading spinner
+      class: 'btn btn-primary',   // additional classe(s) for button
+      style: 'expand-left',       // data-style ladda option
+      color: 'purple',            // data-color ladda option
+      size: 'medium',             // data-size ladda option
+      spinnersize: 35,            // data-spinner-size ladda option
+      spinnercolor: '#000',       // data-spinner-color ladda option
+      spinnerlines: 12,           // data-spinner-lines ladda option
+      progress: 0                 // passed to ladaElement.setProgress()
     };
   }
 }
