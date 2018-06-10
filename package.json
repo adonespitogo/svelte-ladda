@@ -1,5 +1,6 @@
 {
   "name": "svelte-ladda",
+  "version": "1.0.0",
   "description": "Buttons with loading indicators for Svelte",
   "svelte": "src/index.html",
   "module": "index.mjs",
