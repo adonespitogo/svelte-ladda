@@ -35,14 +35,15 @@ In your component:
   spinnersize="{spinnersize}"
   spinnercolor="{spinnercolor}"
   spinnerlines="{spinnerlines}"
-  progress="{progress}"
-  >
+  progress="{progress}">
 
-  Submit
+  This is a submit button
 
 </Ladda>
+```
 
-<script>
+```javascript
+<script type="text/javascript">
 
 import Ladda from 'svelte-ladda';
 
