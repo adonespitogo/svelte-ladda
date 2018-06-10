@@ -61,6 +61,16 @@ export default {
 
 ```
 
+### Supported Events
+
+ - onclick(event)
+ - onmousedown(event)
+ - onmouseup(event)
+ - onmouseover(event)
+
+### Todo
+ - Unit tests
+
 ### License
 
 MIT
