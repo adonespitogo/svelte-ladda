@@ -28,13 +28,19 @@ In your component:
 
 <Ladda
   ladda="{ladda}
-  class="btn btn-primary"
+  class="{class}"
   style="{style}" 
   color="{color}
   size="{size}
   spinnersize="{spinnersize}"
-  ...
-  />
+  spinnercolor="{spinnercolor}"
+  spinnerlines="{spinnerlines}"
+  progress="{progress}"
+  >
+
+  Submit
+
+</Ladda>
 
 <script>
 
@@ -45,7 +51,7 @@ export default {
   data: () => {
     return {
       ladda: true,            // show loading spinner
-      class: '',              // additional classe(s) for button
+      class: 'btn btn-primary',              // additional classe(s) for button
       style: 'expand-left',   // data-style ladda option
       color: 'purple',        // data-color ladda option
       size: 'medium',         // data-size ladda option
