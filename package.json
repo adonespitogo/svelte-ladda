@@ -1,0 +1,40 @@
+{
+  "name": "svelte-ladda",
+  "description": "Buttons with loading indicators for Svelte",
+  "svelte": "src/index.html",
+  "module": "index.mjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "rollup": "^0.57.1",
+    "rollup-plugin-svelte": "^4.1.0",
+    "svelte": "^1.60.0"
+  },
+  "keywords": [
+    "ladda",
+    "svelte",
+    "loading",
+    "buttons"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adonespitogo/svelte-ladda.git"
+  },
+  "author": "Adones B. Pitogo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adonespitogo/svelte-ladda/issues"
+  },
+  "homepage": "https://github.com/adonespitogo/svelte-ladda#readme",
+  "files": [
+    "src",
+    "index.mjs",
+    "index.js"
+  ],
+  "dependencies": {
+    "ladda": "^2.0.1"
+  }
+}
