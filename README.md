@@ -1,34 +1,71 @@
-*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*
-
+# svelte-ladda
 ---
 
-# component-template
+Buttons with loading indicators for Svelte
 
-A base for building shareable Svelte components. Clone it with [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/component-template my-new-component
-cd my-new-component
-npm install # or yarn
+### Install
 ```
 
-Your component's source code lives in `src/index.html`.
+npm i --save svelte-ladda
 
-TODO
+```
 
-* [ ] some firm opinions about the best way to test components
-* [ ] update `degit` so that it automates some of the setup work
+### Usage
+---
 
+Include styles:
 
-## Setting up
+```javascript
+import 'ladda/dist/ladda-themeless.min.css';
+```
+or
 
-* Run `npm init` (or `yarn init`)
-* Replace the default name in rollup.config.js (`SvelteComponent`) with the name of your component, so that people can use it as a standalone script
-* Replace this README with your own
+```javascript
+import 'ladda/dist/ladda.min.css';
+```
+---
 
+In your component:
 
-## Consuming components
+```html
 
-Your package.json has a `"svelte"` field pointing to `src/index.html`, which allows Svelte apps to import the source code directly, if they are using a bundler plugin like [rollup-plugin-svelte](https://github.com/rollup/rollup-plugin-svelte) or [svelte-loader](https://github.com/sveltejs/svelte-loader) (where [`resolve.mainFields`](https://webpack.js.org/configuration/resolve/#resolve-mainfields) in your webpack config includes `"svelte"`). **This is recommended.**
+<Ladda
+  ladda="{ladda}
+  class="btn btn-primary"
+  style="{style}" 
+  color="{color}
+  size="{size}
+  spinnersize="{spinnersize}"
+  ...
+  />
 
-For everyone else, `npm run build` will bundle your component's source code into a plain JavaScript module (`index.mjs`) and a UMD script (`index.js`). This will happen automatically when you publish your component to npm, courtesy of the `prepublishOnly` hook in package.json.
+<script>
+
+import Ladda from 'svelte-ladda';
+
+export default {
+  components: { Ladda },
+  data: () => {
+    return {
+      ladda: true,            // show loading spinner
+      class: '',              // additional classe(s) for button
+      style: 'expand-left',   // data-style ladda option
+      color: 'purple',        // data-color ladda option
+      size: 'medium',         // data-size ladda option
+      spinnersize: 35,        // data-spinner-size ladda option
+      spinnercolor: '#000',   // data-spinner-color ladda option
+      spinnerlines: 12,       // data-spinner-lines ladda option
+      progress: 0             // passed ladaElement.setProgress()
+    };
+  }
+}
+
+</script>
+
+```
+---
+
+### License
+
+MIT
+

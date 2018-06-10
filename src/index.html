@@ -1,44 +1,61 @@
 <button
   ref:btn
-  class="{class}"
-  data-style="style"
-  data-color="color"
-  data-size="size"
-  data-spinner-size="spinnersize"
-  data-spinner-color="spinnercolor"
-  data-spinner-lines="spinnerlines">
-  <slot></slot>
+  on:click="fire('click', event)"
+  on:mousedown="fire('mousedown', event)"
+  on:mouseup="fire('mouseup', event)"
+  on:mouseover="fire('mouseover', event)"
+  class="ladda-button {class}"
+  data-style="{style}"
+  data-color="{color}"
+  data-size="{size}"
+  data-spinner-size="{spinnersize}"
+  data-spinner-color="{spinnercolor}"
+  data-spinner-lines="{spinnerlines}">
+  <span class="ladda-label"><slot></slot></span>
 </button>
 
 <script>
-import Ladda from 'ladda';
+import * as Ladda from 'ladda';
 export default {
   onstate({ changed, current, previous }) {
     // this fires before oncreate, and on every state change.
     // the first time it runs, `previous` is undefined
-    if (typeof changed.when == 'boolean') {
-      if (changed.when) {
-        this.laddaBtn.start();
-      } else {
-        this.laddaBtn.stop();
+    if (this.laddaBtn) {
+      if (changed.ladda) {
+        if (current.ladda) {
+          this.laddaBtn.start();
+        } else {
+          this.laddaBtn.stop();
+        }
+      }
+      if (changed.progress && this.laddaBtn.isLoading()) {
+        this.laddaBtn.setProgress(current.progress);
       }
     }
   },
   oncreate() {
     let btn = this.refs.btn;
+    console.log(btn);
     this.laddaBtn = Ladda.create(btn);
+    console.log('data', this.get());
+    if (this.get().ladda) {
+        this.laddaBtn.start();
+    } else {
+      this.laddaBtn.stop();
+    }
   },
   data: () => {
     return {
-    when: false,
-    class: '',
-    style: '',
-    color: 'purple',
-    size: '',
-    spinnersize: null,
-    spinnercolor: '#000',
-    spinnerlines: 12
-    }
+      ladda: false,
+      class: '',
+      style: 'expand-left',
+      color: 'purple',
+      size: 'medium',
+      spinnersize: 35,
+      spinnercolor: '#000',
+      spinnerlines: 12,
+      progress: 0
+    };
   }
 }
 </script>
