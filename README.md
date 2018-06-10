@@ -58,7 +58,7 @@ export default {
       spinnersize: 35,        // data-spinner-size ladda option
       spinnercolor: '#000',   // data-spinner-color ladda option
       spinnerlines: 12,       // data-spinner-lines ladda option
-      progress: 0             // passed ladaElement.setProgress()
+      progress: 0             // passed to ladaElement.setProgress()
     };
   }
 }
