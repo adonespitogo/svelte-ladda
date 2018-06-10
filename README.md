@@ -1,5 +1,4 @@
 # svelte-ladda
----
 
 Buttons with loading indicators for Svelte
 
@@ -11,7 +10,6 @@ npm i --save svelte-ladda
 ```
 
 ### Usage
----
 
 Include styles:
 
@@ -23,7 +21,6 @@ or
 ```javascript
 import 'ladda/dist/ladda.min.css';
 ```
----
 
 In your component:
 
@@ -63,7 +60,6 @@ export default {
 </script>
 
 ```
----
 
 ### License
 
