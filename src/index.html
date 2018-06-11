@@ -44,6 +44,9 @@ export default {
       this.laddaBtn.stop();
     }
   },
+  ondestroy() {
+    if (this.laddaBtn) this.laddaBtn.remove(); 
+  },
   data: () => {
     return {
       ladda: false,
