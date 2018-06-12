@@ -1,51 +1,41 @@
 <button
-  ref:btn
-  on:click="fire('click', event)"
-  on:mousedown="fire('mousedown', event)"
-  on:mouseup="fire('mouseup', event)"
-  on:mouseover="fire('mouseover', event)"
-  class="ladda-button {class}"
-  data-style="{style}"
-  data-color="{color}"
-  data-size="{size}"
-  data-spinner-size="{spinnersize}"
-  data-spinner-color="{spinnercolor}"
-  data-spinner-lines="{spinnerlines}">
+         ref:btn
+         on:click="fire('click', event)"
+         on:mousedown="fire('mousedown', event)"
+         on:mouseup="fire('mouseup', event)"
+         on:mouseover="fire('mouseover', event)"
+         class="ladda-button {class}"
+         data-style="{style}"
+         data-color="{color}"
+         data-size="{size}"
+         data-spinner-size="{spinnersize}"
+         data-spinner-color="{spinnercolor}"
+         data-spinner-lines="{spinnerlines}">
   <span class="ladda-label"><slot></slot></span>
 </button>
 
 <script>
+
 import * as Ladda from 'ladda';
+
 export default {
-  onstate({ changed, current, previous }) {
-    // this fires before oncreate, and on every state change.
-    // the first time it runs, `previous` is undefined
-    if (this.laddaBtn) {
-      if (changed.ladda) {
-        if (current.ladda) {
-          this.laddaBtn.start();
-        } else {
-          this.laddaBtn.stop();
-        }
-      }
-      if (changed.progress && this.laddaBtn.isLoading()) {
-        this.laddaBtn.setProgress(current.progress);
+  onupdate({ changed, current, previous }) {
+    const btn = this.refs.btn;
+    if (btn && !this.laddaBtn)
+      this.laddaBtn = Ladda.create(btn)
+    if (changed.ladda) {
+      if (current.ladda && !this.laddaBtn.isLoading()) {
+        this.laddaBtn.start();
+      } else {
+        this.laddaBtn.stop();
       }
     }
-  },
-  oncreate() {
-    let btn = this.refs.btn;
-    console.log(btn);
-    this.laddaBtn = Ladda.create(btn);
-    console.log('data', this.get());
-    if (this.get().ladda) {
-        this.laddaBtn.start();
-    } else {
-      this.laddaBtn.stop();
+    if (changed.progress && this.laddaBtn.isLoading()) {
+      this.laddaBtn.setProgress(current.progress);
     }
   },
   ondestroy() {
-    if (this.laddaBtn) this.laddaBtn.remove(); 
+    if (this.laddaBtn) this.laddaBtn.remove();
   },
   data: () => {
     return {
