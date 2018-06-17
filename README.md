@@ -27,7 +27,7 @@ In your component:
 ```html
 
 <Ladda
-  ladda="{ladda}
+  ladda="{ladda}"
   class="{class}"
   style="{style}" 
   color="{color}
@@ -35,7 +35,8 @@ In your component:
   spinnersize="{spinnersize}"
   spinnercolor="{spinnercolor}"
   spinnerlines="{spinnerlines}"
-  progress="{progress}">
+  progress="{progress}"
+  disabled="{disabled}">
 
   This is a submit button
 
@@ -60,6 +61,7 @@ export default {
       spinnercolor: '#000',       // data-spinner-color ladda option
       spinnerlines: 12,           // data-spinner-lines ladda option
       progress: 0                 // passed to ladaElement.setProgress()
+      disabled: false             // disabled button state
     };
   }
 }

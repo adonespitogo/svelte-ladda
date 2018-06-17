@@ -1,4 +1,5 @@
 <button
+         disabled="{disabled}"
          ref:btn
          on:click="fire('click', event)"
          on:mousedown="fire('mousedown', event)"
@@ -47,7 +48,8 @@ export default {
       spinnersize: 35,
       spinnercolor: '#000',
       spinnerlines: 12,
-      progress: 0
+      progress: 0,
+      disabled: false
     };
   }
 }
